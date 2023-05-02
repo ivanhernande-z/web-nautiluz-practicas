@@ -1,0 +1,2787 @@
+﻿{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "neit Api Documentation",
+    "description": "neit Api Documentation",
+    "license": {
+      "name": "Specify your license",
+      "url": "https://yourlicense.com"
+    },
+    "x-logo": {
+      "url": "logo.png",
+      "description": "neit Logo",
+      "altText": "neit Logo",
+      "backgroundColor": "#483D8B"
+    },
+    "contact": {
+      "name": "neit API Support",
+      "url": "https://neit.com/info/support",
+      "email": "support@neit.com"
+    },
+    "termsOfService": "https://neit.com/info/terms_and_conditions"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8060/api",
+      "description": "Api base url"
+    }
+  ],
+  "paths": {
+    "/about": {
+      "get": {
+        "summary": "List About",
+        "description": "About",
+        "operationId": "ListAbout",
+        
+        "tags": [
+          "About"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Filter table records by search value",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/SearchQuery"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of records to select. Default 20",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/LimitQuery"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Current page record",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/PageNumberQuery"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAbout"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/about/view/{id}": {
+      "get": {
+        "summary": "View About",
+        "description": "About Details",
+        "operationId": "ViewAbout",
+        
+        "tags": [
+          "About"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Select record by ID",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/RecordID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ViewAbout"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/about/add": {
+      "post": {
+        "summary": "Add About",
+        "description": "Add New About",
+        "operationId": "AddAbout",
+        
+        "tags": [
+          "About"
+        ],
+        
+        "requestBody": {
+          "description": "Add About",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddAbout"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ViewAbout"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/about/edit/{id}": {
+      "put": {
+        "summary": "Edit About",
+        "description": "Edit About",
+        "operationId": "EditAbout",
+        
+        "tags": [
+          "About"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Select record by ID",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/RecordID"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Edit About",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditAbout"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EditAbout"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/about/delete/{id}": {
+      "delete": {
+        "summary": "Delete About",
+        "description": "About",
+        "operationId": "DeleteAbout",
+        
+        "tags": [
+          "About"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Select record by ID",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/RecordID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/blog": {
+      "get": {
+        "summary": "List Blog",
+        "description": "Blog",
+        "operationId": "ListBlog",
+        
+        "tags": [
+          "Blog"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Filter table records by search value",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/SearchQuery"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of records to select. Default 20",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/LimitQuery"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Current page record",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/PageNumberQuery"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListBlog"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/blog/view/{id}": {
+      "get": {
+        "summary": "View Blog",
+        "description": "Blog Details",
+        "operationId": "ViewBlog",
+        
+        "tags": [
+          "Blog"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Select record by ID",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/RecordID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ViewBlog"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/blog/add": {
+      "post": {
+        "summary": "Add Blog",
+        "description": "Add New Blog",
+        "operationId": "AddBlog",
+        
+        "tags": [
+          "Blog"
+        ],
+        
+        "requestBody": {
+          "description": "Add Blog",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddBlog"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ViewBlog"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/blog/edit/{id}": {
+      "put": {
+        "summary": "Edit Blog",
+        "description": "Edit Blog",
+        "operationId": "EditBlog",
+        
+        "tags": [
+          "Blog"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Select record by ID",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/RecordID"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Edit Blog",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditBlog"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EditBlog"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/blog/delete/{id}": {
+      "delete": {
+        "summary": "Delete Blog",
+        "description": "Blog",
+        "operationId": "DeleteBlog",
+        
+        "tags": [
+          "Blog"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Select record by ID",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/RecordID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cliente": {
+      "get": {
+        "summary": "List Cliente",
+        "description": "Cliente",
+        "operationId": "ListCliente",
+        
+        "tags": [
+          "Cliente"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Filter table records by search value",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/SearchQuery"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of records to select. Default 20",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/LimitQuery"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Current page record",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/PageNumberQuery"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCliente"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cliente/view/{id}": {
+      "get": {
+        "summary": "View Cliente",
+        "description": "Cliente Details",
+        "operationId": "ViewCliente",
+        
+        "tags": [
+          "Cliente"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Select record by ID",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/RecordID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ViewCliente"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cliente/add": {
+      "post": {
+        "summary": "Add Cliente",
+        "description": "Add New Cliente",
+        "operationId": "AddCliente",
+        
+        "tags": [
+          "Cliente"
+        ],
+        
+        "requestBody": {
+          "description": "Add Cliente",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddCliente"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ViewCliente"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cliente/edit/{id}": {
+      "put": {
+        "summary": "Edit Cliente",
+        "description": "Edit Cliente",
+        "operationId": "EditCliente",
+        
+        "tags": [
+          "Cliente"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Select record by ID",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/RecordID"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Edit Cliente",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditCliente"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EditCliente"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cliente/delete/{id}": {
+      "delete": {
+        "summary": "Delete Cliente",
+        "description": "Cliente",
+        "operationId": "DeleteCliente",
+        
+        "tags": [
+          "Cliente"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Select record by ID",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/RecordID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contacto": {
+      "get": {
+        "summary": "List Contacto",
+        "description": "Contacto",
+        "operationId": "ListContacto",
+        
+        "tags": [
+          "Contacto"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Filter table records by search value",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/SearchQuery"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of records to select. Default 20",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/LimitQuery"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Current page record",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/PageNumberQuery"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListContacto"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contacto/view/{id}": {
+      "get": {
+        "summary": "View Contacto",
+        "description": "Contacto Details",
+        "operationId": "ViewContacto",
+        
+        "tags": [
+          "Contacto"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Select record by ID",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/RecordID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ViewContacto"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contacto/add": {
+      "post": {
+        "summary": "Add Contacto",
+        "description": "Add New Contacto",
+        "operationId": "AddContacto",
+        
+        "tags": [
+          "Contacto"
+        ],
+        
+        "requestBody": {
+          "description": "Add Contacto",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddContacto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ViewContacto"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contacto/edit/{id}": {
+      "put": {
+        "summary": "Edit Contacto",
+        "description": "Edit Contacto",
+        "operationId": "EditContacto",
+        
+        "tags": [
+          "Contacto"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Select record by ID",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/RecordID"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Edit Contacto",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditContacto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EditContacto"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contacto/delete/{id}": {
+      "delete": {
+        "summary": "Delete Contacto",
+        "description": "Contacto",
+        "operationId": "DeleteContacto",
+        
+        "tags": [
+          "Contacto"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Select record by ID",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/RecordID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reclutamiento": {
+      "get": {
+        "summary": "List Reclutamiento",
+        "description": "Reclutamiento",
+        "operationId": "ListReclutamiento",
+        
+        "tags": [
+          "Reclutamiento"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Filter table records by search value",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/SearchQuery"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of records to select. Default 20",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/LimitQuery"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Current page record",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/PageNumberQuery"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListReclutamiento"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reclutamiento/view/{id}": {
+      "get": {
+        "summary": "View Reclutamiento",
+        "description": "Reclutamiento Details",
+        "operationId": "ViewReclutamiento",
+        
+        "tags": [
+          "Reclutamiento"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Select record by ID",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/RecordID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ViewReclutamiento"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reclutamiento/add": {
+      "post": {
+        "summary": "Add Reclutamiento",
+        "description": "Add New Reclutamiento",
+        "operationId": "AddReclutamiento",
+        
+        "tags": [
+          "Reclutamiento"
+        ],
+        
+        "requestBody": {
+          "description": "Add Reclutamiento",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddReclutamiento"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ViewReclutamiento"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reclutamiento/edit/{id}": {
+      "put": {
+        "summary": "Edit Reclutamiento",
+        "description": "Edit Reclutamiento",
+        "operationId": "EditReclutamiento",
+        
+        "tags": [
+          "Reclutamiento"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Select record by ID",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/RecordID"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Edit Reclutamiento",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditReclutamiento"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EditReclutamiento"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reclutamiento/delete/{id}": {
+      "delete": {
+        "summary": "Delete Reclutamiento",
+        "description": "Reclutamiento",
+        "operationId": "DeleteReclutamiento",
+        
+        "tags": [
+          "Reclutamiento"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Select record by ID",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/RecordID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/servicios": {
+      "get": {
+        "summary": "List Servicios",
+        "description": "Servicios",
+        "operationId": "ListServicios",
+        
+        "tags": [
+          "Servicios"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Filter table records by search value",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/SearchQuery"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of records to select. Default 20",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/LimitQuery"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Current page record",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/PageNumberQuery"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListServicios"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/servicios/view/{id}": {
+      "get": {
+        "summary": "View Servicios",
+        "description": "Servicios Details",
+        "operationId": "ViewServicios",
+        
+        "tags": [
+          "Servicios"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Select record by ID",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/RecordID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ViewServicios"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/servicios/add": {
+      "post": {
+        "summary": "Add Servicios",
+        "description": "Add New Servicios",
+        "operationId": "AddServicios",
+        
+        "tags": [
+          "Servicios"
+        ],
+        
+        "requestBody": {
+          "description": "Add Servicios",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddServicios"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ViewServicios"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/servicios/edit/{id}": {
+      "put": {
+        "summary": "Edit Servicios",
+        "description": "Edit Servicios",
+        "operationId": "EditServicios",
+        
+        "tags": [
+          "Servicios"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Select record by ID",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/RecordID"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Edit Servicios",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditServicios"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EditServicios"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/servicios/delete/{id}": {
+      "delete": {
+        "summary": "Delete Servicios",
+        "description": "Servicios",
+        "operationId": "DeleteServicios",
+        
+        "tags": [
+          "Servicios"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Select record by ID",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/RecordID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/soporte": {
+      "get": {
+        "summary": "List Soporte",
+        "description": "Soporte",
+        "operationId": "ListSoporte",
+        
+        "tags": [
+          "Soporte"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Filter table records by search value",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/SearchQuery"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of records to select. Default 20",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/LimitQuery"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Current page record",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/PageNumberQuery"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSoporte"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/soporte/view/{id}": {
+      "get": {
+        "summary": "View Soporte",
+        "description": "Soporte Details",
+        "operationId": "ViewSoporte",
+        
+        "tags": [
+          "Soporte"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Select record by ID",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/RecordID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ViewSoporte"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/soporte/add": {
+      "post": {
+        "summary": "Add Soporte",
+        "description": "Add New Soporte",
+        "operationId": "AddSoporte",
+        
+        "tags": [
+          "Soporte"
+        ],
+        
+        "requestBody": {
+          "description": "Add Soporte",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddSoporte"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ViewSoporte"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/soporte/edit/{id}": {
+      "put": {
+        "summary": "Edit Soporte",
+        "description": "Edit Soporte",
+        "operationId": "EditSoporte",
+        
+        "tags": [
+          "Soporte"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Select record by ID",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/RecordID"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Edit Soporte",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditSoporte"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EditSoporte"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/soporte/delete/{id}": {
+      "delete": {
+        "summary": "Delete Soporte",
+        "description": "Soporte",
+        "operationId": "DeleteSoporte",
+        
+        "tags": [
+          "Soporte"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Select record by ID",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/RecordID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/usuario": {
+      "get": {
+        "summary": "List Usuario",
+        "description": "Usuario",
+        "operationId": "ListUsuario",
+        
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Filter table records by search value",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/SearchQuery"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of records to select. Default 20",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/LimitQuery"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Current page record",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/PageNumberQuery"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListUsuario"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/usuario/view/{id}": {
+      "get": {
+        "summary": "View Usuario",
+        "description": "Usuario Details",
+        "operationId": "ViewUsuario",
+        
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Select record by ID",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/RecordID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ViewUsuario"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/usuario/edit/{id}": {
+      "put": {
+        "summary": "Accountedit Usuario",
+        "description": "My Account",
+        "operationId": "AccounteditUsuario",
+        
+        "tags": [
+          "Usuario"
+        ],
+        
+        "requestBody": {
+          "description": "Accountedit Usuario",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccounteditUsuario"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccounteditUsuario"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/usuario/add": {
+      "post": {
+        "summary": "Add Usuario",
+        "description": "Add New Usuario",
+        "operationId": "AddUsuario",
+        
+        "tags": [
+          "Usuario"
+        ],
+        
+        "requestBody": {
+          "description": "Add Usuario",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddUsuario"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ViewUsuario"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/usuario/delete/{id}": {
+      "delete": {
+        "summary": "Delete Usuario",
+        "description": "Usuario",
+        "operationId": "DeleteUsuario",
+        
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Select record by ID",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/components/schemas/RecordID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unable to complete request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    
+    "schemas": {
+      "ListAbout": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "description": "Nombre",
+            "type": "string"
+          },
+          "descripcion": {
+            "description": "Descripcion",
+            "type": "string"
+          }
+        }
+      },
+      "ViewAbout": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "description": "Nombre",
+            "type": "string"
+          },
+          "descripcion": {
+            "description": "Descripcion",
+            "type": "string"
+          }
+        }
+      },
+      "AddAbout": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "description": "Nombre",
+            "type": "string"
+          },
+          "descripcion": {
+            "description": "Descripcion",
+            "type": "string"
+          }
+        }
+      },
+      "EditAbout": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "description": "Nombre",
+            "type": "string"
+          },
+          "descripcion": {
+            "description": "Descripcion",
+            "type": "string"
+          }
+        }
+      },
+      "ListBlog": {
+        "type": "object",
+        "properties": {
+          "articulo": {
+            "description": "Articulo",
+            "type": "string"
+          },
+          "destacado": {
+            "description": "Destacado",
+            "type": "string"
+          }
+        }
+      },
+      "ViewBlog": {
+        "type": "object",
+        "properties": {
+          "articulo": {
+            "description": "Articulo",
+            "type": "string"
+          },
+          "destacado": {
+            "description": "Destacado",
+            "type": "string"
+          }
+        }
+      },
+      "AddBlog": {
+        "type": "object",
+        "properties": {
+          "articulo": {
+            "description": "Articulo",
+            "type": "string"
+          },
+          "destacado": {
+            "description": "Destacado",
+            "type": "string"
+          }
+        }
+      },
+      "EditBlog": {
+        "type": "object",
+        "properties": {
+          "articulo": {
+            "description": "Articulo",
+            "type": "string"
+          },
+          "destacado": {
+            "description": "Destacado",
+            "type": "string"
+          }
+        }
+      },
+      "ListCliente": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "description": "Nombre",
+            "type": "string"
+          },
+          "empresa": {
+            "description": "Empresa",
+            "type": "string"
+          },
+          "tipo": {
+            "description": "Tipo",
+            "type": "string"
+          }
+        }
+      },
+      "ViewCliente": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "description": "Nombre",
+            "type": "string"
+          },
+          "empresa": {
+            "description": "Empresa",
+            "type": "string"
+          },
+          "tipo": {
+            "description": "Tipo",
+            "type": "string"
+          }
+        }
+      },
+      "AddCliente": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "description": "Nombre",
+            "type": "string"
+          },
+          "empresa": {
+            "description": "Empresa",
+            "type": "string"
+          },
+          "tipo": {
+            "description": "Tipo",
+            "type": "string"
+          }
+        }
+      },
+      "EditCliente": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "description": "Nombre",
+            "type": "string"
+          },
+          "empresa": {
+            "description": "Empresa",
+            "type": "string"
+          },
+          "tipo": {
+            "description": "Tipo",
+            "type": "string"
+          }
+        }
+      },
+      "ListContacto": {
+        "type": "object",
+        "properties": {
+          "form": {
+            "description": "Form",
+            "type": "string"
+          },
+          "whatsapp": {
+            "description": "Whatsapp",
+            "type": "string"
+          }
+        }
+      },
+      "ViewContacto": {
+        "type": "object",
+        "properties": {
+          "form": {
+            "description": "Form",
+            "type": "string"
+          },
+          "whatsapp": {
+            "description": "Whatsapp",
+            "type": "string"
+          }
+        }
+      },
+      "AddContacto": {
+        "type": "object",
+        "properties": {
+          "form": {
+            "description": "Form",
+            "type": "string"
+          },
+          "whatsapp": {
+            "description": "Whatsapp",
+            "type": "string"
+          }
+        }
+      },
+      "EditContacto": {
+        "type": "object",
+        "properties": {
+          "form": {
+            "description": "Form",
+            "type": "string"
+          },
+          "whatsapp": {
+            "description": "Whatsapp",
+            "type": "string"
+          }
+        }
+      },
+      "ListReclutamiento": {
+        "type": "object",
+        "properties": {
+          "posiciones": {
+            "description": "Posiciones",
+            "type": "string"
+          },
+          "status": {
+            "description": "Status",
+            "type": "string"
+          },
+          "descripcion": {
+            "description": "Descripcion",
+            "type": "string"
+          },
+          "titulo": {
+            "description": "Titulo",
+            "type": "string"
+          },
+          "salario": {
+            "description": "Salario",
+            "type": "string"
+          },
+          "tipo": {
+            "description": "Tipo",
+            "type": "string"
+          },
+          "fecha": {
+            "description": "Fecha",
+            "type": "string"
+          },
+          "telefono": {
+            "description": "Telefono",
+            "type": "string"
+          },
+          "correo": {
+            "description": "Correo",
+            "type": "string"
+          }
+        }
+      },
+      "ViewReclutamiento": {
+        "type": "object",
+        "properties": {
+          "posiciones": {
+            "description": "Posiciones",
+            "type": "string"
+          },
+          "status": {
+            "description": "Status",
+            "type": "string"
+          },
+          "descripcion": {
+            "description": "Descripcion",
+            "type": "string"
+          },
+          "titulo": {
+            "description": "Titulo",
+            "type": "string"
+          },
+          "salario": {
+            "description": "Salario",
+            "type": "string"
+          },
+          "tipo": {
+            "description": "Tipo",
+            "type": "string"
+          },
+          "fecha": {
+            "description": "Fecha",
+            "type": "string"
+          },
+          "telefono": {
+            "description": "Telefono",
+            "type": "string"
+          },
+          "correo": {
+            "description": "Correo",
+            "type": "string"
+          }
+        }
+      },
+      "AddReclutamiento": {
+        "type": "object",
+        "properties": {
+          "posiciones": {
+            "description": "Posiciones",
+            "type": "string"
+          },
+          "status": {
+            "description": "Status",
+            "type": "string"
+          },
+          "descripcion": {
+            "description": "Descripcion",
+            "type": "string"
+          },
+          "titulo": {
+            "description": "Titulo",
+            "type": "string"
+          },
+          "salario": {
+            "description": "Salario",
+            "type": "string"
+          },
+          "tipo": {
+            "description": "Tipo",
+            "type": "string"
+          },
+          "fecha": {
+            "description": "Fecha",
+            "type": "string"
+          },
+          "telefono": {
+            "description": "Telefono",
+            "type": "string"
+          },
+          "correo": {
+            "description": "Correo",
+            "type": "string"
+          }
+        }
+      },
+      "EditReclutamiento": {
+        "type": "object",
+        "properties": {
+          "posiciones": {
+            "description": "Posiciones",
+            "type": "string"
+          },
+          "status": {
+            "description": "Status",
+            "type": "string"
+          },
+          "descripcion": {
+            "description": "Descripcion",
+            "type": "string"
+          },
+          "titulo": {
+            "description": "Titulo",
+            "type": "string"
+          },
+          "salario": {
+            "description": "Salario",
+            "type": "string"
+          },
+          "tipo": {
+            "description": "Tipo",
+            "type": "string"
+          },
+          "fecha": {
+            "description": "Fecha",
+            "type": "string"
+          },
+          "telefono": {
+            "description": "Telefono",
+            "type": "string"
+          },
+          "correo": {
+            "description": "Correo",
+            "type": "string"
+          }
+        }
+      },
+      "ListServicios": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Id",
+            "type": "string"
+          },
+          "titulo": {
+            "description": "Titulo",
+            "type": "string"
+          },
+          "descripcion": {
+            "description": "Descripcion",
+            "type": "string"
+          },
+          "imagen": {
+            "description": "Imagen",
+            "type": "string"
+          },
+          "icono": {
+            "description": "Icono",
+            "type": "string"
+          }
+        }
+      },
+      "ViewServicios": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Id",
+            "type": "string"
+          },
+          "titulo": {
+            "description": "Titulo",
+            "type": "string"
+          },
+          "descripcion": {
+            "description": "Descripcion",
+            "type": "string"
+          },
+          "imagen": {
+            "description": "Imagen",
+            "type": "string"
+          },
+          "icono": {
+            "description": "Icono",
+            "type": "string"
+          }
+        }
+      },
+      "AddServicios": {
+        "type": "object",
+        "properties": {
+          "titulo": {
+            "description": "Titulo",
+            "type": "string"
+          },
+          "descripcion": {
+            "description": "Descripcion",
+            "type": "string"
+          },
+          "imagen": {
+            "description": "Imagen",
+            "type": "string"
+          },
+          "icono": {
+            "description": "Icono",
+            "type": "string"
+          }
+        }
+      },
+      "EditServicios": {
+        "type": "object",
+        "properties": {
+          "titulo": {
+            "description": "Titulo",
+            "type": "string"
+          },
+          "descripcion": {
+            "description": "Descripcion",
+            "type": "string"
+          },
+          "imagen": {
+            "description": "Imagen",
+            "type": "string"
+          },
+          "icono": {
+            "description": "Icono",
+            "type": "string"
+          }
+        }
+      },
+      "ListSoporte": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Id",
+            "type": "string"
+          },
+          "nombre": {
+            "description": "Nombre",
+            "type": "string"
+          }
+        }
+      },
+      "ViewSoporte": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Id",
+            "type": "string"
+          },
+          "nombre": {
+            "description": "Nombre",
+            "type": "string"
+          }
+        }
+      },
+      "AddSoporte": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "description": "Nombre",
+            "type": "string"
+          }
+        }
+      },
+      "EditSoporte": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "description": "Nombre",
+            "type": "string"
+          }
+        }
+      },
+      "ListUsuario": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "description": "Nombre",
+            "type": "string"
+          },
+          "email": {
+            "description": "Email",
+            "type": "string"
+          },
+          "telefono": {
+            "description": "Telefono",
+            "type": "string"
+          },
+          "foto": {
+            "description": "Foto",
+            "type": "string"
+          }
+        }
+      },
+      "ViewUsuario": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "description": "Nombre",
+            "type": "string"
+          },
+          "email": {
+            "description": "Email",
+            "type": "string"
+          },
+          "telefono": {
+            "description": "Telefono",
+            "type": "string"
+          }
+        }
+      },
+      "AccounteditUsuario": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "description": "Nombre",
+            "type": "string"
+          },
+          "telefono": {
+            "description": "Telefono",
+            "type": "string"
+          },
+          "foto": {
+            "description": "Foto",
+            "type": "string"
+          }
+        }
+      },
+      "AccountviewUsuario": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Id",
+            "type": "string"
+          },
+          "nombre": {
+            "description": "Nombre",
+            "type": "string"
+          },
+          "email": {
+            "description": "Email",
+            "type": "string"
+          },
+          "telefono": {
+            "description": "Telefono",
+            "type": "string"
+          }
+        }
+      },
+      "AddUsuario": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "description": "Nombre",
+            "type": "string"
+          },
+          "contrasenia": {
+            "description": "Contrasenia",
+            "type": "string"
+          },
+          "confirm_password": {
+            "description": "Confirm Password",
+            "type": "string"
+          },
+          "email": {
+            "description": "Email",
+            "type": "string"
+          },
+          "telefono": {
+            "description": "Telefono",
+            "type": "string"
+          },
+          "foto": {
+            "description": "Foto",
+            "type": "string"
+          }
+        }
+      },
+      "EditUsuario": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "description": "Nombre",
+            "type": "string"
+          },
+          "telefono": {
+            "description": "Telefono",
+            "type": "string"
+          },
+          "foto": {
+            "description": "Foto",
+            "type": "string"
+          }
+        }
+      },
+      "SearchQuery": {
+        "type": "string",
+        "properties": {
+          "search": {
+            "description": "Search value",
+            "type": "string"
+          }
+        }
+      },
+      "OrderByQuery": {
+        "type": "string",
+        "properties": {
+          "orderby": {
+            "description": "Sort field name",
+            "type": "string"
+          }
+        }
+      },
+      "OrderTypeQuery": {
+        "type": "string",
+        "properties": {
+          "ordertype": {
+            "description": "Sort type",
+            "type": "string"
+          }
+        }
+      },
+      "LimitQuery": {
+        "type": "string",
+        "properties": {
+          "limit": {
+            "description": "Maximum number of records to select",
+            "type": "integer"
+          }
+        }
+      },
+      "PageNumberQuery": {
+        "type": "string",
+        "properties": {
+          "pagenumber": {
+            "description": "Current page number",
+            "type": "integer"
+          }
+        }
+      },
+      "RecordID": {
+        "type": "string",
+        "properties": {
+          "id": {
+            "description": "Record ID",
+            "type": "string"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "description": "Http Status Code",
+            "type": "integer"
+          },
+          "message": {
+            "description": "Unable to complete request",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
