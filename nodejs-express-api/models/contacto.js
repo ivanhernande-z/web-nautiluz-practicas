@@ -6,8 +6,11 @@ class Contacto extends BaseModel {
 			{
 				
 				id: { type: Sequelize.INTEGER, primaryKey: true , autoIncrement: true },
-				form: {name: 'form', type:Sequelize.STRING},
-				whatsapp: {name: 'whatsapp', type:Sequelize.STRING}
+				nombre: {name: 'nombre', type:Sequelize.STRING},
+				correo: {name: 'correo', type:Sequelize.STRING},
+				asunto: {name: 'asunto', type:Sequelize.STRING},
+				numero: {name: 'numero', type:Sequelize.INTEGER},
+				descripcion: {name: 'descripcion', type:Sequelize.STRING}
 			}, 
 			{ 
 				sequelize,
@@ -21,8 +24,11 @@ class Contacto extends BaseModel {
 	static listFields() {
 		
 		return [
-			'form', 
-			'whatsapp', 
+			'nombre', 
+			'correo', 
+			'asunto', 
+			'numero', 
+			'descripcion', 
 			'id'
 		];
 	}
@@ -31,17 +37,23 @@ class Contacto extends BaseModel {
 		
 		return [
 			'id', 
-			'form', 
-			'whatsapp'
+			'nombre', 
+			'correo', 
+			'asunto', 
+			'numero', 
+			'descripcion'
 		];
 	}
 
 	static editFields() {
 		
 		return [
-			'form', 
-			'whatsapp', 
-			'id'
+			'id', 
+			'nombre', 
+			'correo', 
+			'asunto', 
+			'numero', 
+			'descripcion'
 		];
 	}
 
@@ -49,8 +61,10 @@ class Contacto extends BaseModel {
 	static searchFields(){
 		const sequelize = this.sequelize;
 		return [
-			sequelize.literal("form LIKE :search"), 
-			sequelize.literal("whatsapp LIKE :search"),
+			sequelize.literal("nombre LIKE :search"), 
+			sequelize.literal("correo LIKE :search"), 
+			sequelize.literal("asunto LIKE :search"), 
+			sequelize.literal("descripcion LIKE :search"),
 		];
 	}
 

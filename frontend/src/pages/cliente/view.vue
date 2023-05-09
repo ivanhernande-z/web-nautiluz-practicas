@@ -34,16 +34,27 @@
                                     <div class="col-12 md:col-4">
                                         <div class="card flex gap-3 align-items-center p-3 ">
                                             <div class="">
-                                                <div class="text-400 font-medium mb-1">{{ $t('empresa') }}</div>
-                                                <div class="font-bold">{{ item.empresa }}</div>
+                                                <div class="text-400 font-medium mb-1">{{ $t('opinion') }}</div>
+                                                <div class="font-bold">{{ item.opinion }}</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12 md:col-4">
                                         <div class="card flex gap-3 align-items-center p-3 ">
                                             <div class="">
-                                                <div class="text-400 font-medium mb-1">{{ $t('tipo') }}</div>
-                                                <div class="font-bold">{{ item.tipo }}</div>
+                                                <div class="text-400 font-medium mb-1">{{ $t('descripcion') }}</div>
+                                                <div class="font-bold">{{ item.descripcion }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 md:col-4">
+                                        <div class="card flex gap-3 align-items-center p-3 ">
+                                            <div class="">
+                                                <div class="text-400 font-medium mb-1">{{ $t('foto') }}</div>
+                                                <div class="font-bold">
+                                                    <image-viewer image-size="medium" image-preview-size="" :src="item.foto" width="auto" height="auto" class="img-fluid" :num-display="1">
+                                                    </image-viewer>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

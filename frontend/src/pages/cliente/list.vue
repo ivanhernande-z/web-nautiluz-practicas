@@ -48,14 +48,20 @@
                                                 {{ data.nombre }}
                                             </template>
                                         </Column>
-                                        <Column  field="empresa" :header="$t('empresa')" >
+                                        <Column  field="opinion" :header="$t('opinion')" >
                                             <template #body="{data}">
-                                                {{ data.empresa }}
+                                                {{ data.opinion }}
                                             </template>
                                         </Column>
-                                        <Column  field="tipo" :header="$t('tipo')" >
+                                        <Column  field="descripcion" :header="$t('descripcion')" >
                                             <template #body="{data}">
-                                                {{ data.tipo }}
+                                                {{ data.descripcion }}
+                                            </template>
+                                        </Column>
+                                        <Column  field="foto" :header="$t('foto')" >
+                                            <template #body="{data}">
+                                                <image-viewer image-size="small" image-preview-size="" :src="data.foto" width="50px" height="50px" class="img-fluid" :num-display="1">
+                                                </image-viewer>
                                             </template>
                                         </Column>
                                         <Column  headerStyle="width: 2rem" headerClass="text-center">

@@ -39,6 +39,30 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-12 md:col-4">
+                                        <div class="card flex gap-3 align-items-center p-3 ">
+                                            <div class="">
+                                                <div class="text-400 font-medium mb-1">{{ $t('contenido') }}</div>
+                                                <div class="font-bold">{{ item.contenido }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 md:col-4">
+                                        <div class="card flex gap-3 align-items-center p-3 ">
+                                            <div class="">
+                                                <div class="text-400 font-medium mb-1">{{ $t('pie') }}</div>
+                                                <div class="font-bold">{{ item.pie }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 md:col-4">
+                                        <div class="card flex gap-3 align-items-center p-3 ">
+                                            <div class="">
+                                                <div class="text-400 font-medium mb-1">{{ $t('autor') }}</div>
+                                                <div class="font-bold">{{ item.autor }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="flex gap-3 justify-content-start">
                                     <Menubar class="p-0 inline-menu" ref="actionMenu" :model="getActionMenuModel(item)" />

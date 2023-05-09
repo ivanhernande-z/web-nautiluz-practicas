@@ -48,6 +48,22 @@ var config = {
 			uploadDir: "uploads/files/"
 		},
 		
+		foto: {
+			filenameType: "random",
+			extensions: "jpg,png,gif,jpeg",
+			limit: "1",
+			maxFileSize: "3",
+			returnFullpath: false,
+			filenamePrefix: "",
+			uploadDir: "uploads/files",
+			imageResize:  [ 
+				{name: "small", width: 100, height: 100, mode: "cover"}, 
+				{name: "medium", width: 480, height: 480, mode: "inside"}, 
+				{name: "large", width: 1024, height: 760, mode: "inside"}
+			],
+
+		},
+
 		imagen: {
 			filenameType: "random",
 			extensions: "jpg,png,gif,jpeg",

@@ -7,8 +7,9 @@ class Cliente extends BaseModel {
 				
 				id: { type: Sequelize.INTEGER, primaryKey: true , autoIncrement: true },
 				nombre: {name: 'nombre', type:Sequelize.STRING},
-				empresa: {name: 'empresa', type:Sequelize.STRING},
-				tipo: {name: 'tipo', type:Sequelize.STRING}
+				opinion: {name: 'opinion', type:Sequelize.STRING},
+				descripcion: {name: 'descripcion', type:Sequelize.STRING},
+				foto: {name: 'foto', type:Sequelize.STRING}
 			}, 
 			{ 
 				sequelize,
@@ -23,8 +24,9 @@ class Cliente extends BaseModel {
 		
 		return [
 			'nombre', 
-			'empresa', 
-			'tipo', 
+			'opinion', 
+			'descripcion', 
+			'foto', 
 			'id'
 		];
 	}
@@ -32,10 +34,11 @@ class Cliente extends BaseModel {
 	static viewFields() {
 		
 		return [
-			'id', 
 			'nombre', 
-			'empresa', 
-			'tipo'
+			'opinion', 
+			'descripcion', 
+			'foto', 
+			'id'
 		];
 	}
 
@@ -43,8 +46,9 @@ class Cliente extends BaseModel {
 		
 		return [
 			'nombre', 
-			'empresa', 
-			'tipo', 
+			'opinion', 
+			'descripcion', 
+			'foto', 
 			'id'
 		];
 	}
@@ -54,8 +58,9 @@ class Cliente extends BaseModel {
 		const sequelize = this.sequelize;
 		return [
 			sequelize.literal("nombre LIKE :search"), 
-			sequelize.literal("empresa LIKE :search"), 
-			sequelize.literal("tipo LIKE :search"),
+			sequelize.literal("opinion LIKE :search"), 
+			sequelize.literal("descripcion LIKE :search"), 
+			sequelize.literal("foto LIKE :search"),
 		];
 	}
 

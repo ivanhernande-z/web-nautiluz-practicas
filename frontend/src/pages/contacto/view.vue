@@ -26,16 +26,40 @@
                                     <div class="col-12 md:col-4">
                                         <div class="card flex gap-3 align-items-center p-3 ">
                                             <div class="">
-                                                <div class="text-400 font-medium mb-1">{{ $t('form') }}</div>
-                                                <div class="font-bold">{{ item.form }}</div>
+                                                <div class="text-400 font-medium mb-1">{{ $t('nombre') }}</div>
+                                                <div class="font-bold">{{ item.nombre }}</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12 md:col-4">
                                         <div class="card flex gap-3 align-items-center p-3 ">
                                             <div class="">
-                                                <div class="text-400 font-medium mb-1">{{ $t('whatsapp') }}</div>
-                                                <div class="font-bold">{{ item.whatsapp }}</div>
+                                                <div class="text-400 font-medium mb-1">{{ $t('correo') }}</div>
+                                                <div class="font-bold">{{ item.correo }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 md:col-4">
+                                        <div class="card flex gap-3 align-items-center p-3 ">
+                                            <div class="">
+                                                <div class="text-400 font-medium mb-1">{{ $t('asunto') }}</div>
+                                                <div class="font-bold">{{ item.asunto }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 md:col-4">
+                                        <div class="card flex gap-3 align-items-center p-3 ">
+                                            <div class="">
+                                                <div class="text-400 font-medium mb-1">{{ $t('numero') }}</div>
+                                                <div class="font-bold">{{ item.numero }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 md:col-4">
+                                        <div class="card flex gap-3 align-items-center p-3 ">
+                                            <div class="">
+                                                <div class="text-400 font-medium mb-1">{{ $t('descripcion') }}</div>
+                                                <div class="font-bold">{{ item.descripcion }}</div>
                                             </div>
                                         </div>
                                     </div>

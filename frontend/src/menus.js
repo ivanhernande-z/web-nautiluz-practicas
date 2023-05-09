@@ -79,12 +79,6 @@ export const AppMenus = {
     
   }
 ],
-	tipoItems: [    
-{value: "Privada", label: $t('privada')},
-	{value: "Publica", label: $t('publica')},
-	{value: "Educativa", label: $t('educativa')},
-	{value: "Sin animos de lucro", label: $t('sinAnimosDeLucro')}
-    ],
 	posicionesItems: [    
 {value: "Ingenieria", label: $t('ingenieria')},
 	{value: "Administracion", label: $t('administracion')},
@@ -94,7 +88,7 @@ export const AppMenus = {
 {value: "Abierto", label: $t('abierto')},
 	{value: "Cerrado", label: $t('cerrado')}
     ],
-	tipo2Items: [    
+	tipoItems: [    
 {value: "Ingenieria", label: $t('ingenieria')},
 	{value: "Administracion", label: $t('administracion')},
 	{value: "Licenciatura", label: $t('licenciatura')},

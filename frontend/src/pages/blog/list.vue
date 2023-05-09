@@ -53,6 +53,21 @@
                                                 {{ data.destacado }}
                                             </template>
                                         </Column>
+                                        <Column  field="contenido" :header="$t('contenido')" >
+                                            <template #body="{data}">
+                                                {{ data.contenido }}
+                                            </template>
+                                        </Column>
+                                        <Column  field="pie" :header="$t('pie')" >
+                                            <template #body="{data}">
+                                                {{ data.pie }}
+                                            </template>
+                                        </Column>
+                                        <Column  field="autor" :header="$t('autor')" >
+                                            <template #body="{data}">
+                                                {{ data.autor }}
+                                            </template>
+                                        </Column>
                                         <Column  headerStyle="width: 2rem" headerClass="text-center">
                                             <template #body="{data}">
                                                 <div class="flex justify-content-end">

@@ -7,7 +7,10 @@ class Blog extends BaseModel {
 				
 				id: { type: Sequelize.INTEGER, primaryKey: true , autoIncrement: true },
 				articulo: {name: 'articulo', type:Sequelize.STRING},
-				destacado: {name: 'destacado', type:Sequelize.STRING}
+				destacado: {name: 'destacado', type:Sequelize.STRING},
+				contenido: {name: 'contenido', type:Sequelize.STRING},
+				pie: {name: 'pie', type:Sequelize.STRING},
+				autor: {name: 'autor', type:Sequelize.STRING}
 			}, 
 			{ 
 				sequelize,
@@ -23,7 +26,10 @@ class Blog extends BaseModel {
 		return [
 			'articulo', 
 			'destacado', 
-			'id'
+			'contenido', 
+			'pie', 
+			'id', 
+			'autor'
 		];
 	}
 
@@ -32,7 +38,10 @@ class Blog extends BaseModel {
 		return [
 			'id', 
 			'articulo', 
-			'destacado'
+			'destacado', 
+			'contenido', 
+			'pie', 
+			'autor'
 		];
 	}
 
@@ -41,7 +50,10 @@ class Blog extends BaseModel {
 		return [
 			'articulo', 
 			'destacado', 
-			'id'
+			'id', 
+			'contenido', 
+			'pie', 
+			'autor'
 		];
 	}
 
@@ -50,7 +62,10 @@ class Blog extends BaseModel {
 		const sequelize = this.sequelize;
 		return [
 			sequelize.literal("articulo LIKE :search"), 
-			sequelize.literal("destacado LIKE :search"),
+			sequelize.literal("destacado LIKE :search"), 
+			sequelize.literal("contenido LIKE :search"), 
+			sequelize.literal("pie LIKE :search"), 
+			sequelize.literal("autor LIKE :search"),
 		];
 	}
 

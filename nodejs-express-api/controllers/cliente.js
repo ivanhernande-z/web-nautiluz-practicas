@@ -87,8 +87,9 @@ router.get(['/view/:recid'], async (req, res) => {
 router.post('/add/' , 
 	[
 		body('nombre').optional({nullable: true, checkFalsy: true}),
-		body('empresa').optional({nullable: true, checkFalsy: true}),
-		body('tipo').optional({nullable: true, checkFalsy: true}),
+		body('opinion').optional({nullable: true, checkFalsy: true}),
+		body('descripcion').optional({nullable: true, checkFalsy: true}),
+		body('foto').optional({nullable: true, checkFalsy: true}),
 	]
 , async function (req, res) {
 	try{
@@ -98,6 +99,12 @@ router.post('/add/' ,
 			return res.badRequest(errorMsg);
 		}
 		let modeldata = matchedData(req, { locations: ['body'] }); // get validated data
+		
+        // move uploaded file from temp directory to destination directory
+		if(modeldata.foto !== undefined) {
+			let fileInfo = utils.moveUploadedFiles(modeldata.foto, "foto");
+			modeldata.foto = fileInfo.filepath;
+		}
 		
 		//save Cliente record
 		let record = await Cliente.create(modeldata);
@@ -143,8 +150,9 @@ router.get('/edit/:recid', async (req, res) => {
 router.post('/edit/:recid' , 
 	[
 		body('nombre').optional({nullable: true, checkFalsy: true}),
-		body('empresa').optional({nullable: true, checkFalsy: true}),
-		body('tipo').optional({nullable: true, checkFalsy: true}),
+		body('opinion').optional({nullable: true, checkFalsy: true}),
+		body('descripcion').optional({nullable: true, checkFalsy: true}),
+		body('foto').optional({nullable: true, checkFalsy: true}),
 	]
 , async (req, res) => {
 	try{
@@ -155,6 +163,12 @@ router.post('/edit/:recid' ,
 		}
 		const recid = req.params.recid;
 		let modeldata = matchedData(req, { locations: ['body'], includeOptionals: true }); // get validated data
+		
+        // move uploaded file from temp directory to destination directory
+		if(modeldata.foto !== undefined) {
+			let fileInfo = utils.moveUploadedFiles(modeldata.foto, "foto");
+			modeldata.foto = fileInfo.filepath;
+		}
 		const query = {};
 		const where = {};
 		where['id'] = recid;

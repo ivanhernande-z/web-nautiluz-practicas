@@ -28,26 +28,65 @@
                                         <div class="col-12">
                                             <div class="formgrid grid">
                                                 <div class="col-12 md:col-3">
-                                                    {{ $t('form') }} 
+                                                    {{ $t('nombre') }} 
                                                 </div>
                                                 <div class="col-12 md:col-9">
-                                                    <InputText  ref="ctrlform" v-model.trim="formData.form"  :label="$t('form')" type="text" :placeholder="$t('enterForm')"      
-                                                    class=" w-full" :class="getErrorClass('form')">
+                                                    <InputText  ref="ctrlnombre" v-model.trim="formData.nombre"  :label="$t('nombre')" type="text" :placeholder="$t('enterNombre')"      
+                                                    class=" w-full" :class="getErrorClass('nombre')">
                                                     </InputText>
-                                                    <small v-if="isFieldValid('form')" class="p-error">{{ getFieldError('form') }}</small> 
+                                                    <small v-if="isFieldValid('nombre')" class="p-error">{{ getFieldError('nombre') }}</small> 
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="formgrid grid">
                                                 <div class="col-12 md:col-3">
-                                                    {{ $t('whatsapp') }} 
+                                                    {{ $t('correo') }} 
                                                 </div>
                                                 <div class="col-12 md:col-9">
-                                                    <InputText  ref="ctrlwhatsapp" v-model.trim="formData.whatsapp"  :label="$t('whatsapp')" type="text" :placeholder="$t('enterWhatsapp')"      
-                                                    class=" w-full" :class="getErrorClass('whatsapp')">
+                                                    <InputText  ref="ctrlcorreo" v-model.trim="formData.correo"  :label="$t('correo')" type="text" :placeholder="$t('enterCorreo')"      
+                                                    class=" w-full" :class="getErrorClass('correo')">
                                                     </InputText>
-                                                    <small v-if="isFieldValid('whatsapp')" class="p-error">{{ getFieldError('whatsapp') }}</small> 
+                                                    <small v-if="isFieldValid('correo')" class="p-error">{{ getFieldError('correo') }}</small> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="formgrid grid">
+                                                <div class="col-12 md:col-3">
+                                                    {{ $t('asunto') }} 
+                                                </div>
+                                                <div class="col-12 md:col-9">
+                                                    <InputText  ref="ctrlasunto" v-model.trim="formData.asunto"  :label="$t('asunto')" type="text" :placeholder="$t('enterAsunto')"      
+                                                    class=" w-full" :class="getErrorClass('asunto')">
+                                                    </InputText>
+                                                    <small v-if="isFieldValid('asunto')" class="p-error">{{ getFieldError('asunto') }}</small> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="formgrid grid">
+                                                <div class="col-12 md:col-3">
+                                                    {{ $t('numero') }} 
+                                                </div>
+                                                <div class="col-12 md:col-9">
+                                                    <InputText  ref="ctrlnumero" v-model.trim="formData.numero"  :label="$t('numero')" type="number" :placeholder="$t('enterNumero')"   step="any"    
+                                                    class=" w-full" :class="getErrorClass('numero')">
+                                                    </InputText>
+                                                    <small v-if="isFieldValid('numero')" class="p-error">{{ getFieldError('numero') }}</small> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="formgrid grid">
+                                                <div class="col-12 md:col-3">
+                                                    {{ $t('descripcion') }} 
+                                                </div>
+                                                <div class="col-12 md:col-9">
+                                                    <InputText  ref="ctrldescripcion" v-model.trim="formData.descripcion"  :label="$t('descripcion')" type="text" :placeholder="$t('enterDescripcion')"      
+                                                    class=" w-full" :class="getErrorClass('descripcion')">
+                                                    </InputText>
+                                                    <small v-if="isFieldValid('descripcion')" class="p-error">{{ getFieldError('descripcion') }}</small> 
                                                 </div>
                                             </div>
                                         </div>
@@ -73,7 +112,7 @@
 </template>
 <script setup>
 	import {  computed,  reactive, toRefs, onMounted } from 'vue';
-	import { required } from 'src/services/validators';
+	import { required, numeric, } from 'src/services/validators';
 	import { useApp } from 'src/composables/app.js';
 	import { $t } from 'src/services/i18n';
 	import { useEditPage } from 'src/composables/editpage.js';
@@ -146,8 +185,11 @@
 	const app = useApp();
 	
 	const formDefaultValues = Object.assign({
-		form: "NULL", 
-		whatsapp: "NULL", 
+		nombre: "NULL", 
+		correo: "NULL", 
+		asunto: "NULL", 
+		numero: "NULL", 
+		descripcion: "NULL", 
 	}, props.pageData);
 	
 	const formData = reactive({ ...formDefaultValues });
@@ -165,8 +207,11 @@
 	// form validation rules
 	const rules = computed(() => {
 		return {
-			form: {  },
-			whatsapp: {  }
+			nombre: {  },
+			correo: {  },
+			asunto: {  },
+			numero: { numeric },
+			descripcion: {  }
 		}
 	});
 	

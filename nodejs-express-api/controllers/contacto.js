@@ -86,8 +86,11 @@ router.get(['/view/:recid'], async (req, res) => {
  */
 router.post('/add/' , 
 	[
-		body('form').optional({nullable: true, checkFalsy: true}),
-		body('whatsapp').optional({nullable: true, checkFalsy: true}),
+		body('nombre').optional({nullable: true, checkFalsy: true}),
+		body('correo').optional({nullable: true, checkFalsy: true}),
+		body('asunto').optional({nullable: true, checkFalsy: true}),
+		body('numero').optional({nullable: true, checkFalsy: true}).isNumeric(),
+		body('descripcion').optional({nullable: true, checkFalsy: true}),
 	]
 , async function (req, res) {
 	try{
@@ -141,8 +144,11 @@ router.get('/edit/:recid', async (req, res) => {
  */
 router.post('/edit/:recid' , 
 	[
-		body('form').optional({nullable: true, checkFalsy: true}),
-		body('whatsapp').optional({nullable: true, checkFalsy: true}),
+		body('nombre').optional({nullable: true, checkFalsy: true}),
+		body('correo').optional({nullable: true, checkFalsy: true}),
+		body('asunto').optional({nullable: true, checkFalsy: true}),
+		body('numero').optional({nullable: true, checkFalsy: true}).isNumeric(),
+		body('descripcion').optional({nullable: true, checkFalsy: true}),
 	]
 , async (req, res) => {
 	try{

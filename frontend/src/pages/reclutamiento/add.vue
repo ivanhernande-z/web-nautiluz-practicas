@@ -97,7 +97,7 @@
                                                     {{ $t('tipo') }} 
                                                 </div>
                                                 <div class="col-12 md:col-9">
-                                                    <Dropdown  class="w-full" :class="getErrorClass('tipo')"      optionLabel="label" optionValue="value" ref="ctrltipo"  v-model="formData.tipo" :options="app.menus.tipo2Items" :label="$t('tipo')"  :placeholder="$t('selectAValue')" >
+                                                    <Dropdown  class="w-full" :class="getErrorClass('tipo')"      optionLabel="label" optionValue="value" ref="ctrltipo"  v-model="formData.tipo" :options="app.menus.tipoItems" :label="$t('tipo')"  :placeholder="$t('selectAValue')" >
                                                     </Dropdown> 
                                                     <small v-if="isFieldValid('tipo')" class="p-error">{{ getFieldError('tipo') }}</small> 
                                                 </div>

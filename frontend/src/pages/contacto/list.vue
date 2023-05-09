@@ -43,14 +43,29 @@
                                 <DataTable :lazy="true"   :loading="loading"    v-model:selection="selectedItems"
                                      :value="records" dataKey="id" @sort="onSort($event)" class="" :showGridlines="false" :rowHover="true" responsiveLayout="stack">
                                     <Column selectionMode="multiple" headerStyle="width: 2rem" />
-                                        <Column  field="form" :header="$t('form')" >
+                                        <Column  field="nombre" :header="$t('nombre')" >
                                             <template #body="{data}">
-                                                {{ data.form }}
+                                                {{ data.nombre }}
                                             </template>
                                         </Column>
-                                        <Column  field="whatsapp" :header="$t('whatsapp')" >
+                                        <Column  field="correo" :header="$t('correo')" >
                                             <template #body="{data}">
-                                                {{ data.whatsapp }}
+                                                {{ data.correo }}
+                                            </template>
+                                        </Column>
+                                        <Column  field="asunto" :header="$t('asunto')" >
+                                            <template #body="{data}">
+                                                {{ data.asunto }}
+                                            </template>
+                                        </Column>
+                                        <Column  field="numero" :header="$t('numero')" >
+                                            <template #body="{data}">
+                                                {{ data.numero }}
+                                            </template>
+                                        </Column>
+                                        <Column  field="descripcion" :header="$t('descripcion')" >
+                                            <template #body="{data}">
+                                                {{ data.descripcion }}
                                             </template>
                                         </Column>
                                         <Column  headerStyle="width: 2rem" headerClass="text-center">

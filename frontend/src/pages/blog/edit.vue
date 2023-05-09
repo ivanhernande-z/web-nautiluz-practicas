@@ -51,6 +51,45 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-12">
+                                            <div class="formgrid grid">
+                                                <div class="col-12 md:col-3">
+                                                    {{ $t('contenido') }} 
+                                                </div>
+                                                <div class="col-12 md:col-9">
+                                                    <InputText  ref="ctrlcontenido" v-model.trim="formData.contenido"  :label="$t('contenido')" type="text" :placeholder="$t('enterContenido')"      
+                                                    class=" w-full" :class="getErrorClass('contenido')">
+                                                    </InputText>
+                                                    <small v-if="isFieldValid('contenido')" class="p-error">{{ getFieldError('contenido') }}</small> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="formgrid grid">
+                                                <div class="col-12 md:col-3">
+                                                    {{ $t('pie') }} 
+                                                </div>
+                                                <div class="col-12 md:col-9">
+                                                    <InputText  ref="ctrlpie" v-model.trim="formData.pie"  :label="$t('pie')" type="text" :placeholder="$t('enterPie')"      
+                                                    class=" w-full" :class="getErrorClass('pie')">
+                                                    </InputText>
+                                                    <small v-if="isFieldValid('pie')" class="p-error">{{ getFieldError('pie') }}</small> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="formgrid grid">
+                                                <div class="col-12 md:col-3">
+                                                    {{ $t('autor') }} 
+                                                </div>
+                                                <div class="col-12 md:col-9">
+                                                    <InputText  ref="ctrlautor" v-model.trim="formData.autor"  :label="$t('autor')" type="text" :placeholder="$t('enterAutor')"      
+                                                    class=" w-full" :class="getErrorClass('autor')">
+                                                    </InputText>
+                                                    <small v-if="isFieldValid('autor')" class="p-error">{{ getFieldError('autor') }}</small> 
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <!--[form-content-end]-->
                                     <div v-if="showSubmitButton" class="text-center my-3">
@@ -148,6 +187,9 @@
 	const formDefaultValues = Object.assign({
 		articulo: "NULL", 
 		destacado: "NULL", 
+		contenido: "NULL", 
+		pie: "NULL", 
+		autor: "NULL", 
 	}, props.pageData);
 	
 	const formData = reactive({ ...formDefaultValues });
@@ -166,7 +208,10 @@
 	const rules = computed(() => {
 		return {
 			articulo: {  },
-			destacado: {  }
+			destacado: {  },
+			contenido: {  },
+			pie: {  },
+			autor: {  }
 		}
 	});
 	

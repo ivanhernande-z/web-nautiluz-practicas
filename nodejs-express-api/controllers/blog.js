@@ -88,6 +88,9 @@ router.post('/add/' ,
 	[
 		body('articulo').optional({nullable: true, checkFalsy: true}),
 		body('destacado').optional({nullable: true, checkFalsy: true}),
+		body('contenido').optional({nullable: true, checkFalsy: true}),
+		body('pie').optional({nullable: true, checkFalsy: true}),
+		body('autor').optional({nullable: true, checkFalsy: true}),
 	]
 , async function (req, res) {
 	try{
@@ -143,6 +146,9 @@ router.post('/edit/:recid' ,
 	[
 		body('articulo').optional({nullable: true, checkFalsy: true}),
 		body('destacado').optional({nullable: true, checkFalsy: true}),
+		body('contenido').optional({nullable: true, checkFalsy: true}),
+		body('pie').optional({nullable: true, checkFalsy: true}),
+		body('autor').optional({nullable: true, checkFalsy: true}),
 	]
 , async (req, res) => {
 	try{

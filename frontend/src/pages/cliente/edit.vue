@@ -41,25 +41,39 @@
                                         <div class="col-12">
                                             <div class="formgrid grid">
                                                 <div class="col-12 md:col-3">
-                                                    {{ $t('empresa') }} 
+                                                    {{ $t('opinion') }} 
                                                 </div>
                                                 <div class="col-12 md:col-9">
-                                                    <InputText  ref="ctrlempresa" v-model.trim="formData.empresa"  :label="$t('empresa')" type="text" :placeholder="$t('enterEmpresa')"      
-                                                    class=" w-full" :class="getErrorClass('empresa')">
+                                                    <InputText  ref="ctrlopinion" v-model.trim="formData.opinion"  :label="$t('opinion')" type="text" :placeholder="$t('enterOpinion')"      
+                                                    class=" w-full" :class="getErrorClass('opinion')">
                                                     </InputText>
-                                                    <small v-if="isFieldValid('empresa')" class="p-error">{{ getFieldError('empresa') }}</small> 
+                                                    <small v-if="isFieldValid('opinion')" class="p-error">{{ getFieldError('opinion') }}</small> 
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="formgrid grid">
                                                 <div class="col-12 md:col-3">
-                                                    {{ $t('tipo') }} 
+                                                    {{ $t('descripcion') }} 
                                                 </div>
                                                 <div class="col-12 md:col-9">
-                                                    <Dropdown  class="w-full" :class="getErrorClass('tipo')"      optionLabel="label" optionValue="value" ref="ctrltipo"  v-model="formData.tipo" :options="app.menus.tipoItems" :label="$t('tipo')"  :placeholder="$t('selectAValue')" >
-                                                    </Dropdown> 
-                                                    <small v-if="isFieldValid('tipo')" class="p-error">{{ getFieldError('tipo') }}</small> 
+                                                    <InputText  ref="ctrldescripcion" v-model.trim="formData.descripcion"  :label="$t('descripcion')" type="text" :placeholder="$t('enterDescripcion')"      
+                                                    class=" w-full" :class="getErrorClass('descripcion')">
+                                                    </InputText>
+                                                    <small v-if="isFieldValid('descripcion')" class="p-error">{{ getFieldError('descripcion') }}</small> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="formgrid grid">
+                                                <div class="col-12 md:col-3">
+                                                    {{ $t('foto') }} 
+                                                </div>
+                                                <div class="col-12 md:col-9">
+                                                    <div class="mb-3">
+                                                        <Uploader :class="getErrorClass('foto')" :auto="true" :fileLimit="1" :maxFileSize="3000000" accept=".jpg,.png,.gif,.jpeg" :multiple="false" style="width:100%" :label="$t('chooseFilesOrDropFilesHere')" upload-path="fileuploader/upload/foto" v-model="formData.foto"></Uploader>
+                                                    </div>
+                                                    <small v-if="isFieldValid('foto')" class="p-error">{{ getFieldError('foto') }}</small> 
                                                 </div>
                                             </div>
                                         </div>
@@ -159,8 +173,9 @@
 	
 	const formDefaultValues = Object.assign({
 		nombre: "NULL", 
-		empresa: "NULL", 
-		tipo: "", 
+		opinion: "NULL", 
+		descripcion: "NULL", 
+		foto: "", 
 	}, props.pageData);
 	
 	const formData = reactive({ ...formDefaultValues });
@@ -179,8 +194,9 @@
 	const rules = computed(() => {
 		return {
 			nombre: {  },
-			empresa: {  },
-			tipo: {  }
+			opinion: {  },
+			descripcion: {  },
+			foto: {  }
 		}
 	});
 	
